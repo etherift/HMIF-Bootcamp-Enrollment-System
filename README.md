@@ -142,4 +142,42 @@ Sistem Pendaftaran Berbasis Web dengan fitur unggulan:
 5. **Tolak:** Isi catatan → Status jadi "Rejected" → Email penolakan terkirim.
 
 ---
+## 📂 Project Structure & Setup
+
+Proyek ini menggunakan struktur direktori yang dioptimalkan untuk **Next.js 15 (App Router)**, **Supabase**, dan **shadcn/ui**. Pengelompokan *Route Groups* (seperti `(auth)`, `(applicant)`) digunakan untuk memisahkan *layout* tanpa memengaruhi struktur URL.
+
+### 🌳 Directory Tree
+
+```text
+hmif-bootcamp-system/
+├── public/                     # Aset statis (gambar, ikon, font)
+│   ├── images/
+│   │   ├── sequence/           # 240 frame gambar untuk animasi Canvas
+│   │   └── cohorts/            # Gambar dokumentasi/galeri angkatan sebelumnya
+│   └── docs/                   # Template PDF (misal: kop surat penerimaan)
+├── src/
+│   ├── app/                    # Next.js 15 App Router (Routing system)
+│   │   ├── (public)/           # Route Group: Halaman publik (tanpa login)
+│   │   ├── (auth)/             # Route Group: Otentikasi
+│   │   ├── (applicant)/        # Route Group: Peserta (Protected)
+│   │   ├── admin/              # Route Group: Admin Panel (Protected)
+│   │   ├── api/                # Backend API Routes
+│   │   ├── layout.tsx          # Root layout (termasuk font & provider)
+│   │   └── globals.css         # Global styles & Tailwind directives
+│   ├── components/             # Reusable React Components
+│   │   ├── ui/                 # Komponen dari shadcn/ui
+│   │   ├── layout/             # Navbar, Footer, Admin Sidebar
+│   │   ├── forms/              # Komponen form (Data Pribadi, Review, dll)
+│   │   ├── animations/         # Wrapper untuk Framer Motion & GSAP/Lenis
+│   │   ├── canvas/             # Komponen khusus animasi Canvas
+│   │   └── emails/             # React Email Templates (Resend API)
+│   ├── lib/                    # Utility functions & Konfigurasi Supabase
+│   ├── types/                  # Definisi TypeScript
+│   ├── hooks/                  # Custom React Hooks
+│   └── store/                  # Global State Management (Zustand/Context)
+├── supabase/                   # Konfigurasi lokal Supabase & Migrasi
+├── .env.local                  # Environment variables
+├── middleware.ts               # Next.js Middleware (Proteksi rute)
+└── package.json                # Daftar dependensi
+---
 *Dokumentasi ini dirilis pada 16 Februari 2026 - Versi 1.0*
