@@ -152,7 +152,7 @@ Proyek ini menggunakan struktur direktori yang dioptimalkan untuk **Next.js 15 (
 hmif-bootcamp-system/
 ├── public/                     # Aset statis (gambar, ikon, font)
 │   ├── images/
-│   │   ├── sequence/           # 240 frame gambar untuk animasi Canvas
+│   │   ├── sequence/           # 60 frame gambar untuk animasi Canvas
 │   │   └── cohorts/            # Gambar dokumentasi/galeri angkatan sebelumnya
 │   └── docs/                   # Template PDF (misal: kop surat penerimaan)
 ├── src/
